@@ -166,8 +166,8 @@
             <li><a href="programs.html">Programs &amp; Services</a><div class="nav-drop"><a href="programs.html"><i class="fas fa-th-large"></i>All Programs</a><a href="activities.html"><i class="fas fa-running"></i>Activities & Classes</a><a href="programs.html#foodbank"><i class="fas fa-hand-holding-heart"></i>Food Bank</a><a href="programs.html#counseling"><i class="fas fa-comments"></i>Spiritual Counseling</a></div></li>
             <li><a href="education.html">Education</a><div class="nav-drop"><a href="education.html"><i class="fas fa-book-open"></i>All Classes</a><a href="education.html#adult-quran"><i class="fas fa-quran"></i>Adult Quran Class</a><a href="education.html#kids-quran"><i class="fas fa-child"></i>Kids Quran Class</a><a href="education.html#hifdh"><i class="fas fa-star"></i>Hifdh Program</a><a href="education.html#arabic"><i class="fas fa-language"></i>Arabic Class</a></div></li>
             <li><a href="events.html">Events</a><div class="nav-drop"><a href="events.html"><i class="fas fa-calendar-star"></i>Upcoming Events</a><a href="events.html#ramadan"><i class="fas fa-moon"></i>Ramadan Programs</a><a href="events.html#eid"><i class="fas fa-gift"></i>Eid Celebrations</a><a href="newsletter.html"><i class="fas fa-envelope"></i>Newsletter</a></div></li>
-            <li><a href="about.html">About</a><div class="nav-drop"><a href="about.html#intro"><i class="fas fa-users"></i>Who We Are</a><a href="about.html#mission"><i class="fas fa-bullseye"></i>Our Mission</a><a href="about.html#values"><i class="fas fa-heart"></i>Core Values</a><a href="about.html#gallery"><i class="fas fa-images"></i>Gallery</a></div></li>
-            <li><a href="contact.html">Contact</a><div class="nav-drop"><a href="contact.html#form"><i class="fas fa-paper-plane"></i>Send a Message</a><a href="contact.html#location"><i class="fas fa-map-marker-alt"></i>Location & Hours</a><a href="donate.html"><i class="fas fa-hand-holding-usd"></i>Donate</a></div></li>
+            <li><a href="about.html">About</a><div class="nav-drop"><a href="about.html#intro"><i class="fas fa-users"></i>Who We Are</a><a href="about.html#mission"><i class="fas fa-bullseye"></i>Our Mission</a><a href="about.html#values"><i class="fas fa-heart"></i>Core Values</a></div></li>
+            <li><a href="contact.html">Contact</a><div class="nav-drop"><a href="contact.html#form"><i class="fas fa-paper-plane"></i>Send a Message</a><a href="contact.html#location"><i class="fas fa-map-marker-alt"></i>Location & Hours</a></div></li>
         </ul>
         <a href="donate.html" class="nav-donate">Donate</a>
         <div class="hamburger" id="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
@@ -228,7 +228,7 @@
 </div>
 
 <!-- MONTHLY SCHEDULE -->
-<section class="schedule-section">
+<section class="schedule-section" id="schedule">
     <div class="container">
         <div class="sched-head">
             <div>
@@ -276,174 +276,12 @@
                 <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="mailto:rahmaislamiccentre@gmail.com">rahmaislamiccentre@gmail.com</a></span></div>
             </div>
         </div>
-                <div class="footer-bottom">
+                        <div class="footer-bottom">
                 <span>Copyright &copy; 2026 Rahma Islamic Centre. All rights reserved.</span>
                 <span>Powered by Devodez Solutions</span>
             </div>
         </div>
     </footer>
-            <script src="shared.js"></script>
-    <script>
-/* ── HORLOGE ── */
-(function tick(){
-    var el = document.getElementById('todayClock');
-    if (el) el.textContent = new Date().toLocaleTimeString('en-US', {hour:'2-digit', minute:'2-digit', hour12:true});
-    setTimeout(tick, 1000);
-})();
-
-(function(){
-    var el = document.getElementById('todayDate');
-    if (el) el.textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
-})();
-
-/* ── HELPERS ── */
-function addM(t, m) {
-    var p = t.split(':').map(Number), tot = p[0]*60 + p[1] + m;
-    return String(Math.floor(tot/60) % 24).padStart(2,'0') + ':' + String(tot%60).padStart(2,'0');
-}
-function fmtTime(raw) {
-    if (!raw) return '—';
-    var t = raw.split(' ')[0].split(':');
-    var h = parseInt(t[0]), m = t[1];
-    return (h % 12 || 12) + ':' + m + ' ' + (h >= 12 ? 'PM' : 'AM');
-}
-function setBadge(src) {
-    var badge = document.getElementById('apiBadge');
-    if (!badge) return;
-    var colors = {mawaqit:'#4ade80', aladhan:'#fbbf24', static:'#9ca3af'};
-    var labels = {mawaqit:'Mawaqit.net ✓', aladhan:'Aladhan API', static:'Horaires statiques'};
-    badge.innerHTML = '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:' + colors[src] + ';margin-right:8px;"></span>' + labels[src];
-}
-
-/* ── APPLIQUER LES HEURES (IDs réels: t-fajr, iq-fajr, tp-fajr) ── */
-function applyPrayers(T, src) {
-    setBadge(src);
-    var IQ = {Fajr:20, Dhuhr:20, Asr:15, Maghrib:5, Isha:15};
-    var keys = ['Fajr','Dhuhr','Asr','Maghrib','Isha'];
-    var tIds = {'Fajr':'t-fajr','Dhuhr':'t-dhuhr','Asr':'t-asr','Maghrib':'t-maghrib','Isha':'t-isha'};
-    var iIds = {'Fajr':'iq-fajr','Dhuhr':'iq-dhuhr','Asr':'iq-asr','Maghrib':'iq-maghrib','Isha':'iq-isha'};
-    var cIds = {'Fajr':'tp-fajr','Dhuhr':'tp-dhuhr','Asr':'tp-asr','Maghrib':'tp-maghrib','Isha':'tp-isha'};
-
-    var nm = new Date().getHours()*60 + new Date().getMinutes();
-    var active = 'tp-isha';
-
-    keys.forEach(function(k) {
-        var raw = T[k] || T[k.toLowerCase()] || '';
-        var t24 = raw.split(' ')[0];
-
-        /* Adhan */
-        var el = document.getElementById(tIds[k]);
-        if (el) { el.textContent = fmtTime(t24); el.classList.remove('loading'); }
-
-        /* Iqamah */
-        var iq = document.getElementById(iIds[k]);
-        if (iq && t24) {
-            iq.textContent = 'Iqamah: ' + fmtTime(addM(t24, IQ[k]));
-            iq.classList.remove('loading');
-        }
-
-        /* Prière active */
-        if (t24) {
-            var p = t24.split(':').map(Number);
-            if (nm >= p[0]*60 + p[1]) active = cIds[k];
-        }
-    });
-
-    /* Appliquer classe active */
-    Object.values(cIds).forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.classList.toggle('active-prayer', id === active);
-    });
-}
-
-/* ── CHARGER AUJOURD'HUI: Mawaqit → Aladhan → static ── */
-async function loadToday() {
-    var T = null, src = 'static';
-
-    try {
-        var r = await fetch('https://mawaqit.net/api/2.0/mosque/by-slug/rahma-islamic-centre-winnipeg/prayer-times');
-        if (r.ok) {
-            var d = await r.json();
-            if (d.times && d.times.length >= 6) {
-                T = {Fajr:d.times[0], Dhuhr:d.times[2], Asr:d.times[3], Maghrib:d.times[4], Isha:d.times[5]};
-                src = 'mawaqit';
-            }
-        }
-    } catch(e) {}
-
-    if (!T) {
-        try {
-            var now = new Date();
-            var url = 'https://api.aladhan.com/v1/timings/'
-                + now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear()
-                + '?latitude=49.8951&longitude=-97.1384&method=2';
-            var res = await fetch(url, {mode:'cors'});
-            var data = await res.json();
-            if (data.code === 200) { T = data.data.timings; src = 'aladhan'; }
-        } catch(e) {}
-    }
-
-    if (!T) {
-        T = {Fajr:'06:12',Dhuhr:'12:41',Asr:'15:34',Maghrib:'18:09',Isha:'19:38'};
-    }
-
-    applyPrayers(T, src);
-    return T;
-}
-
-/* ── CALENDRIER MENSUEL ── */
-async function loadMonth(month, year) {
-    var tbody = document.querySelector('#prayerTable tbody');
-    if (!tbody) return;
-    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--muted)"><i class="fas fa-spinner fa-spin" style="color:var(--gold);margin-right:8px"></i>Chargement...</td></tr>';
-
-    try {
-        var url = 'https://api.aladhan.com/v1/calendar/'+year+'/'+month+'?latitude=49.8951&longitude=-97.1384&method=2';
-        var res = await fetch(url, {mode:'cors'});
-        var data = await res.json();
-        if (data.code !== 200) throw new Error('bad');
-
-        var html = '';
-        var today = new Date();
-        data.data.forEach(function(day) {
-            var g  = day.date.gregorian;
-            var hj = day.date.hijri;
-            var t  = day.timings;
-            var dt = new Date(+g.year, g.month.number-1, +g.day);
-            var isFri   = dt.getDay() === 5;
-            var isToday = +g.year===today.getFullYear() && g.month.number-1===today.getMonth() && +g.day===today.getDate();
-            var rowStyle = isToday ? 'background:rgba(201,168,76,0.12);font-weight:600;' : (isFri ? 'background:rgba(201,168,76,0.05);' : '');
-            html += '<tr style="'+rowStyle+'">';
-            html += '<td>'+g.day+(isFri?' <small style="color:var(--gold)">Jum.</small>':'')+'</td>';
-            html += '<td>'+hj.day+' '+hj.month.en+'</td>';
-            html += '<td>'+fmtTime(t.Fajr)+'</td>';
-            html += '<td>'+fmtTime(t.Sunrise)+'</td>';
-            html += '<td>'+fmtTime(t.Dhuhr)+'</td>';
-            html += '<td>'+fmtTime(t.Asr)+'</td>';
-            html += '<td>'+fmtTime(t.Maghrib)+'</td>';
-            html += '</tr>';
-        });
-        tbody.innerHTML = html;
-    } catch(e) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:30px;color:var(--muted)">Impossible de charger le calendrier.</td></tr>';
-    }
-}
-
-/* ── INIT ── */
-document.addEventListener('DOMContentLoaded', function() {
-    loadToday();
-    var now = new Date();
-    loadMonth(now.getMonth()+1, now.getFullYear());
-
-    var picker = document.getElementById('monthPicker');
-    if (picker) {
-        picker.value = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
-        picker.addEventListener('change', function() {
-            var p = this.value.split('-');
-            loadMonth(parseInt(p[1]), parseInt(p[0]));
-        });
-    }
-});
-    </script>
+    <script src="shared.js"></script>
 </body>
 </html>

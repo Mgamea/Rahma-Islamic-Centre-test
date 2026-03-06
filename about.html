@@ -20,12 +20,6 @@
         .about-year { position: absolute; bottom: -20px; right: -20px; z-index: 2; background: var(--gold); color: var(--navy); padding: 18px 24px; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; text-align: center; line-height: 1.2; }
         .about-year strong { display: block; font-size: 2rem; }
         .about-intro-text p { font-size: 1.05rem; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
-
-        /* Gallery */
-        .gallery-about { background: var(--white); padding: 90px 24px; }
-        .gallery-about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-        .gallery-about-item { overflow: hidden; position: relative; height: 260px; cursor: pointer; }
-        .gallery-about-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.4s ease; filter: brightness(0.85); }
         .gallery-about-item:hover img { transform: scale(1.08); filter: brightness(1); }
         .gallery-about-item-overlay { position: absolute; inset: 0; background: linear-gradient(transparent, rgba(11,31,58,0.6)); opacity: 0; transition: opacity 0.4s; }
         .gallery-about-item:hover .gallery-about-item-overlay { opacity: 1; }
@@ -158,7 +152,7 @@
                 <li><a href="education.html">Education</a><div class="nav-drop"><a href="education.html"><i class="fas fa-book-open"></i>All Classes</a><a href="education.html#adult-quran"><i class="fas fa-quran"></i>Adult Quran Class</a><a href="education.html#kids-quran"><i class="fas fa-child"></i>Kids Quran Class</a><a href="education.html#hifdh"><i class="fas fa-star"></i>Hifdh Program</a><a href="education.html#arabic"><i class="fas fa-language"></i>Arabic Class</a></div></li>
                 <li><a href="events.html">Events</a><div class="nav-drop"><a href="events.html"><i class="fas fa-calendar-star"></i>Upcoming Events</a><a href="events.html#ramadan"><i class="fas fa-moon"></i>Ramadan Programs</a><a href="events.html#eid"><i class="fas fa-gift"></i>Eid Celebrations</a><a href="newsletter.html"><i class="fas fa-envelope"></i>Newsletter</a></div></li>
                 <li><a href="about.html" class="active">About</a><div class="nav-drop"><a href="about.html#intro"><i class="fas fa-users"></i>Who We Are</a><a href="about.html#mission"><i class="fas fa-bullseye"></i>Our Mission</a><a href="about.html#values"><i class="fas fa-heart"></i>Core Values</a></div></li>
-                <li><a href="contact.html">Contact</a><div class="nav-drop"><a href="contact.html#form"><i class="fas fa-paper-plane"></i>Send a Message</a><a href="contact.html#location"><i class="fas fa-map-marker-alt"></i>Location & Hours</a><a href="donate.html"><i class="fas fa-hand-holding-usd"></i>Donate</a></div></li>
+                <li><a href="contact.html">Contact</a><div class="nav-drop"><a href="contact.html#form"><i class="fas fa-paper-plane"></i>Send a Message</a><a href="contact.html#location"><i class="fas fa-map-marker-alt"></i>Location & Hours</a></div></li>
             </ul>
             <a href="donate.html" class="nav-donate">Donate</a>
             <div class="hamburger" id="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
@@ -189,7 +183,8 @@
         </div>
     </section>
 
-    <section class="mission-section">
+
+    <section class="mission-section" id="mission">
         <div class="mission-pattern"></div>
         <div class="container">
             <div class="mission-inner">
@@ -205,7 +200,7 @@
         </div>
     </section>
 
-    <section class="values-section">
+    <section class="values-section" id="values">
         <div class="container">
             <span class="section-label reveal">What Guides Us</span>
             <h2 class="section-title reveal">Our <em>Core Values</em></h2>
@@ -242,7 +237,7 @@
                 <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="mailto:rahmaislamiccentre@gmail.com">rahmaislamiccentre@gmail.com</a></span></div>
             </div>
         </div>
-                <div class="footer-bottom">
+                        <div class="footer-bottom">
                 <span>Copyright &copy; 2026 Rahma Islamic Centre. All rights reserved.</span>
                 <span>Powered by Devodez Solutions</span>
             </div>
