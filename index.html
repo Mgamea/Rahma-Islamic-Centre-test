@@ -156,6 +156,109 @@
         padding-left: 26px !important;
     }
     .nav-drop a:hover i { opacity: 1; }
+    
+        /* ── OPTION C — Prayer Cards Home (même design que prayer-times) ── */
+        .prayer-cards {
+            display: flex !important;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            margin-bottom: 24px;
+            border: none !important;
+        }
+        .prayer-card-item {
+            flex: 1 1 130px;
+            max-width: 175px;
+            min-width: 120px;
+            background: linear-gradient(145deg, rgba(201,168,76,0.12) 0%, rgba(11,31,58,0.6) 100%);
+            border: 1px solid rgba(201,168,76,0.28) !important;
+            border-right: 1px solid rgba(201,168,76,0.28) !important;
+            border-radius: 20px;
+            padding: 24px 14px 18px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+            overflow: hidden;
+        }
+        .prayer-card-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .prayer-card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+            border-color: rgba(201,168,76,0.55) !important;
+            background: linear-gradient(145deg, rgba(201,168,76,0.12) 0%, rgba(11,31,58,0.6) 100%);
+        }
+        /* Icône dans anneau */
+        .prayer-icon-ring {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: rgba(201,168,76,0.15);
+            border: 1.5px solid rgba(201,168,76,0.4);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 12px;
+            transition: background 0.25s;
+        }
+        .prayer-card-item:hover .prayer-icon-ring { background: rgba(201,168,76,0.28); }
+        .prayer-icon { font-size: 1.1rem !important; color: var(--gold); opacity: 0.9; margin-bottom: 0 !important; display: inline !important; }
+        .prayer-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.63rem;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        /* Heure en pill */
+        .prayer-time-val {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(201,168,76,0.85) 0%, rgba(180,140,50,0.9) 100%);
+            color: #1a1000 !important;
+            padding: 4px 14px 5px;
+            border-radius: 50px;
+            line-height: 1.2;
+            box-shadow: 0 3px 12px rgba(201,168,76,0.3);
+            margin-bottom: 0;
+        }
+        /* Carte active */
+        .prayer-card-item.active-prayer {
+            border-color: var(--gold) !important;
+            background: linear-gradient(145deg, rgba(201,168,76,0.22) 0%, rgba(11,31,58,0.7) 100%);
+            box-shadow: 0 0 0 3px rgba(201,168,76,0.18), 0 8px 28px rgba(0,0,0,0.3);
+        }
+        .prayer-card-item.active-prayer .prayer-icon-ring {
+            background: rgba(201,168,76,0.35);
+            border-color: var(--gold);
+        }
+        .prayer-card-item.active-prayer .prayer-name { color: var(--gold); }
+        .prayer-card-item.active-prayer::after {
+            content: 'Now';
+            position: absolute;
+            top: 10px; right: 10px;
+            background: var(--gold);
+            color: #1a1000;
+            font-family: 'Cinzel', serif;
+            font-size: 0.48rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 2px 7px;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+        @media (max-width: 700px) {
+            .prayer-cards { gap: 8px; }
+            .prayer-card-item { flex: 1 1 100px; min-width: 90px; padding: 16px 8px 12px; border-radius: 14px; }
+            .prayer-icon-ring { width: 36px; height: 36px; margin-bottom: 8px; }
+            .prayer-time-val { font-size: 1.1rem; padding: 3px 10px; }
+        }
     </style>
     <!-- /DROPDOWN NAV CSS -->
 </head>
@@ -228,12 +331,12 @@
                 </div>
             </div>
             <div class="prayer-cards">
-                <div class="prayer-card-item" id="card-fajr"><i class="fas fa-moon prayer-icon"></i><div class="prayer-name">Fajr</div><div class="prayer-time-val" id="fajr-time">—</div></div>
-                <div class="prayer-card-item" id="card-dhuhr"><i class="fas fa-sun prayer-icon"></i><div class="prayer-name">Dhuhr</div><div class="prayer-time-val" id="dhuhr-time">—</div></div>
-                <div class="prayer-card-item" id="card-asr"><i class="fas fa-cloud-sun prayer-icon"></i><div class="prayer-name">Asr</div><div class="prayer-time-val" id="asr-time">—</div></div>
-                <div class="prayer-card-item" id="card-maghrib"><i class="fas fa-cloud-moon prayer-icon"></i><div class="prayer-name">Maghrib</div><div class="prayer-time-val" id="maghrib-time">—</div></div>
-                <div class="prayer-card-item" id="card-isha"><i class="fas fa-star prayer-icon"></i><div class="prayer-name">Isha</div><div class="prayer-time-val" id="isha-time">—</div></div>
-                <div class="prayer-card-item"><i class="fas fa-mosque prayer-icon"></i><div class="prayer-name">Jumu'ah</div><div class="prayer-time-val" style="font-size:1.1rem;">1:45 &amp; 2:45 PM</div></div>
+                <div class="prayer-card-item" id="card-fajr"><div class="prayer-icon-ring"><i class="fas fa-moon prayer-icon"></i></div><div class="prayer-name">Fajr</div><div class="prayer-time-val" id="fajr-time">—</div></div>
+                <div class="prayer-card-item" id="card-dhuhr"><div class="prayer-icon-ring"><i class="fas fa-sun prayer-icon"></i></div><div class="prayer-name">Dhuhr</div><div class="prayer-time-val" id="dhuhr-time">—</div></div>
+                <div class="prayer-card-item" id="card-asr"><div class="prayer-icon-ring"><i class="fas fa-cloud-sun prayer-icon"></i></div><div class="prayer-name">Asr</div><div class="prayer-time-val" id="asr-time">—</div></div>
+                <div class="prayer-card-item" id="card-maghrib"><div class="prayer-icon-ring"><i class="fas fa-cloud-moon prayer-icon"></i></div><div class="prayer-name">Maghrib</div><div class="prayer-time-val" id="maghrib-time">—</div></div>
+                <div class="prayer-card-item" id="card-isha"><div class="prayer-icon-ring"><i class="fas fa-star prayer-icon"></i></div><div class="prayer-name">Isha</div><div class="prayer-time-val" id="isha-time">—</div></div>
+                <div class="prayer-card-item"><div class="prayer-icon-ring"><i class="fas fa-mosque prayer-icon"></i></div><div class="prayer-name">Jumu'ah</div><div class="prayer-time-val">1:45 &amp; 2:45 PM</div></div>
             </div>
             <div class="prayer-location-bar">
                 <i class="fas fa-map-marker-alt"></i>
@@ -371,7 +474,7 @@
             <div class="footer-col"><h4>Navigation</h4><ul>
                 <li><a href="index.html">Home</a></li><li><a href="prayer-times.html">Prayer Times</a></li>
                 <li><a href="programs.html">Programs &amp; Services</a></li><li><a href="education.html">Education</a></li>
-                <li><a href="events.html">Events</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+                <li><a href="events.html">Events</a></li><li><a href="index.html#about">About</a></li><li><a href="contact.html">Contact</a></li>
             </ul></div>
             <div class="footer-col"><h4>Programs</h4><ul>
                 <li><a href="education.html">Quran Classes</a></li><li><a href="education.html">Arabic Classes</a></li>
@@ -434,8 +537,8 @@
             }
             if (!T) T = {Fajr:'06:12', Dhuhr:'12:41', Asr:'15:34', Maghrib:'18:09', Isha:'19:38'};
 
-            var map     = {Fajr:'fajr-time',   Dhuhr:'dhuhr-time',   Asr:'asr-time',   Maghrib:'maghrib-time',   Isha:'isha-time'};
-            var cardMap = {Fajr:'card-fajr',    Dhuhr:'card-dhuhr',   Asr:'card-asr',   Maghrib:'card-maghrib',   Isha:'card-isha'};
+            var map     = {Fajr:'fajr-time', Dhuhr:'dhuhr-time', Asr:'asr-time', Maghrib:'maghrib-time', Isha:'isha-time'};
+            var cardMap = {Fajr:'card-fajr',  Dhuhr:'card-dhuhr', Asr:'card-asr', Maghrib:'card-maghrib', Isha:'card-isha'};
 
             var nm = new Date().getHours()*60 + new Date().getMinutes();
             var active = 'Isha';
