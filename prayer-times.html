@@ -163,11 +163,12 @@
         <a href="index.html" class="logo-wrap"><img src="logo.png" alt="Rahma" class="logo-img"><div class="logo-text">Rahma Islamic Centre<span>Winnipeg, </span></div></a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a><div class="nav-drop"><a href="index.html#about"><i class="fas fa-users"></i>Who We Are</a><a href="index.html#mission"><i class="fas fa-bullseye"></i>Our Mission</a><a href="index.html#values"><i class="fas fa-heart"></i>Core Values</a></div></li>
             <li><a href="prayer-times.html" class="active">Prayer Times</a><div class="nav-drop"><a href="prayer-times.html#prayer"><i class="fas fa-clock"></i>Today's Prayer Times</a><a href="prayer-times.html#schedule"><i class="fas fa-calendar-alt"></i>Monthly Schedule</a><a href="prayer-times.html#jumuah"><i class="fas fa-mosque"></i>Jumu'ah Info</a></div></li>
             <li><a href="programs.html">Programs &amp; Services</a><div class="nav-drop"><a href="programs.html"><i class="fas fa-th-large"></i>All Programs</a><a href="activities.html"><i class="fas fa-running"></i>Activities & Classes</a><a href="programs.html#foodbank"><i class="fas fa-hand-holding-heart"></i>Food Bank</a><a href="programs.html#counseling"><i class="fas fa-comments"></i>Spiritual Counseling</a></div></li>
             <li><a href="education.html">Education</a><div class="nav-drop"><a href="education.html"><i class="fas fa-book-open"></i>All Classes</a><a href="education.html#adult-quran"><i class="fas fa-quran"></i>Adult Quran Class</a><a href="education.html#kids-quran"><i class="fas fa-child"></i>Kids Quran Class</a><a href="education.html#hifdh"><i class="fas fa-star"></i>Hifdh Program</a><a href="education.html#arabic"><i class="fas fa-language"></i>Arabic Class</a></div></li>
             <li><a href="events.html">Events</a><div class="nav-drop"><a href="events.html"><i class="fas fa-calendar-star"></i>Upcoming Events</a><a href="events.html#ramadan"><i class="fas fa-moon"></i>Ramadan Programs</a><a href="events.html#eid"><i class="fas fa-gift"></i>Eid Celebrations</a><a href="newsletter.html"><i class="fas fa-envelope"></i>Newsletter</a></div></li>
-            <li><a href="gallery.html">Gallery</a><div class="nav-drop"><a href="index.html#about"><i class="fas fa-users"></i>Who We Are</a><a href="index.html#mission"><i class="fas fa-bullseye"></i>Our Mission</a><a href="index.html#values"><i class="fas fa-heart"></i>Core Values</a></div></li>
+            
             <li><a href="contact.html">Contact</a><div class="nav-drop"><a href="contact.html#form"><i class="fas fa-paper-plane"></i>Send a Message</a><a href="contact.html#location"><i class="fas fa-map-marker-alt"></i>Location & Hours</a></div></li>
         </ul>
         <a href="donate.html" class="nav-donate">Donate</a>
@@ -284,5 +285,95 @@
         </div>
     </footer>
     <script src="shared.js"></script>
+    <script>
+    /* === PRAYER TIMES PAGE INIT === */
+    (function() {
+        /* Horloge temps réel */
+        function updateClock() {
+            var now = new Date();
+            var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+            var ap = h >= 12 ? 'PM' : 'AM';
+            h = h % 12 || 12;
+            var t = h + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0') + ' ' + ap;
+            var el = document.getElementById('todayClock');
+            if (el) el.textContent = t;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        /* Date hijri et grégorienne */
+        var now = new Date();
+        var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        var dateEl = document.getElementById('todayDate');
+        if (dateEl) dateEl.textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+
+        /* Sélecteur de mois */
+        var picker = document.getElementById('monthPicker');
+        if (picker) {
+            picker.value = (now.getMonth() + 1) + '-' + now.getFullYear();
+            picker.addEventListener('change', function() {
+                var parts = this.value.split('-');
+                loadCalendar(parseInt(parts[1]), parseInt(parts[0]));
+            });
+        }
+
+        /* Charger les heures */
+        loadMawaqitPrayers({
+            badgeId: 'apiBadge',
+            timeIds:   { fajr:'t-fajr', dhuhr:'t-dhuhr', asr:'t-asr', maghrib:'t-maghrib', isha:'t-isha' },
+            iqamahIds: { fajr:'iq-fajr', dhuhr:'iq-dhuhr', asr:'iq-asr', maghrib:'iq-maghrib', isha:'iq-isha' },
+            cardIds:   { fajr:'tp-fajr', dhuhr:'tp-dhuhr', asr:'tp-asr', maghrib:'tp-maghrib', isha:'tp-isha' }
+        }).then(function() {
+            /* Charger le calendrier du mois en cours */
+            loadCalendar(now.getFullYear(), now.getMonth() + 1);
+        });
+    })();
+
+    /* === CALENDRIER MENSUEL === */
+    function loadCalendar(year, month) {
+        var tbody = document.querySelector('#prayerTable tbody');
+        if (!tbody) return;
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--muted)">Loading…</td></tr>';
+
+        var url = 'https://api.aladhan.com/v1/calendar/' + year + '/' + month + '?latitude=49.8951&longitude=-97.1384&method=2';
+        fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+            if (!data.data) return;
+            var today = new Date();
+            tbody.innerHTML = '';
+            data.data.forEach(function(day) {
+                var d = day.timings;
+                var greg = day.date.gregorian;
+                var hijri = day.date.hijri;
+                var dayNum = parseInt(greg.day);
+                var weekday = greg.weekday ? greg.weekday.en : '';
+                var isFriday = weekday === 'Friday';
+                var isToday = (dayNum === today.getDate() && parseInt(month) === today.getMonth() + 1 && year === today.getFullYear());
+
+                function fmt(t) { return t ? t.replace(' (EST)','').replace(' (CDT)','').replace(' (CST)','') : '—'; }
+                function to12(t) {
+                    var s = fmt(t).split(':'); if (s.length < 2) return t;
+                    var h = parseInt(s[0]), m = s[1]; var ap = h >= 12 ? 'PM' : 'AM'; h = h%12||12;
+                    return h + ':' + m + ' ' + ap;
+                }
+
+                var tr = document.createElement('tr');
+                if (isToday) tr.classList.add('today-row');
+                if (isFriday) tr.classList.add('friday-row');
+
+                tr.innerHTML = '<td><strong>' + greg.day + '</strong>' + (isFriday ? ' <span class="jum-badge">Jum.</span>' : '') + '</td>'
+                    + '<td>' + hijri.day + ' ' + (hijri.month ? hijri.month.en : '') + '</td>'
+                    + '<td>' + to12(d.Fajr) + '</td>'
+                    + '<td>' + to12(d.Sunrise) + '</td>'
+                    + '<td>' + to12(d.Dhuhr) + '</td>'
+                    + '<td>' + to12(d.Asr) + '</td>'
+                    + '<td>' + to12(d.Maghrib) + '</td>';
+                tbody.appendChild(tr);
+            });
+        }).catch(function() {
+            if (tbody) tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--muted)">Unable to load schedule. Please try again.</td></tr>';
+        });
+    }
+    </script>
 </body>
 </html>
