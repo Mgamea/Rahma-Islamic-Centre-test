@@ -76,8 +76,8 @@
         .secure-tag i { color: #4ade80; margin-right: 6px; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) { .about-grid, .donate-inner { grid-template-columns: 1fr; gap: 50px; } .about-img-wrap { max-width: 500px; } .about-stats { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 600px) { .about-stats { grid-template-columns: 1fr; } .donate-form-box { padding: 36px 24px; } }
+        @media (max-width: 900px) { .about-grid, .donate-inner { grid-template-columns: 1fr; gap: 50px; } .about-stats { grid-template-columns: repeat(2, max-content); justify-content: center; justify-items: center; }}
+        @media (max-width: 600px) {.about-stats { grid-template-columns: 1fr; stify-items: center;} .donate-form-box { padding: 36px 24px; }}
     </style>
 
     <!-- DROPDOWN NAV CSS -->
