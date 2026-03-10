@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -124,7 +124,12 @@
     <!-- /DROPDOWN NAV CSS -->
 </head>
 <body>
-    <div id="loader"><div class="loader-text">RAHMA</div><div class="loader-bar"><div class="loader-fill"></div></div></div>
+    <div id="loader">
+  <div class="loader-star"></div>
+  <div class="loader-text">RAHMA</div>
+  <div class="loader-arabic">بِسْمِ ٱللَّٰهِ</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
         <div class="mobile-menu" id="mobileMenu">
         <a href="index.html"  onclick="closeMobile()">Home</a>
         <a href="prayer-times.html"  onclick="closeMobile()">Prayer Times</a>
@@ -154,7 +159,9 @@
 
     <div class="page-header">
         <div class="page-header-pattern"></div><div class="page-header-overlay"></div>
-        <div class="page-header-content"><span class="page-header-eyebrow">Every Contribution Matters</span><h1>Support <em>Rahma</em></h1></div>
+        <div class="page-header-content"><span class="page-header-eyebrow">Every Contribution Matters</span><h1>Support <em>Rahma</em></h1>
+            <div class="page-header-arabesque"><div class="arabesque-divider"><span class="arabesque-gem">✦ ✦ ✦</span></div></div>
+        </div>
     </div>
 
     <section class="donate-section">
@@ -165,7 +172,7 @@
                     <span class="section-label">Why Donate</span>
                     <h2>Be Part of <em>Something Greater</em></h2>
                     <div class="divider"></div>
-                    <p>At Winnipeg Rahma Islamic Centre, we are dedicated to serving our community by providing a space for worship, education, and social services. Our centre is more than just a place of prayer — it is a hub for learning, a refuge for those in need, and a beacon of unity.</p>
+                    <p>At Rahma Islamic Centre, we are dedicated to serving our community by providing a space for worship, education, and social services. Our centre is more than just a place of prayer — it is a hub for learning, a refuge for those in need, and a beacon of unity.</p>
                     <p>Your generosity, no matter the size, will make a lasting difference for Muslims in Winnipeg.</p>
                     <ul class="impact-list">
                         <li><i class="fas fa-check"></i> Expand facilities to accommodate more worshippers</li>
@@ -204,12 +211,13 @@
         <form class="newsletter-form" onsubmit="subscribeNewsletter(event)"><input type="email" class="newsletter-input" placeholder="Your email address" required><button type="submit" class="newsletter-btn">Subscribe</button></form>
     </div></div></section>
     <footer class="footer"><div class="container">
+        <div class="footer-shahada">لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ</div>
         <div class="footer-grid">
             <div class="footer-brand"><span class="logo-text-footer">Rahma Islamic Centre</span><p>A vibrant Islamic center serving Muslims in Winnipeg since 2018.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
             <div class="footer-col"><h4>Navigation</h4><ul>
                 <li><a href="index.html">Home</a></li><li><a href="prayer-times.html">Prayer Times</a></li>
                 <li><a href="programs.html">Programs &amp; Services</a></li><li><a href="education.html">Education</a></li>
-                <li><a href="events.html">Events</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+                <li><a href="events.html">Events</a></li><li><a href="index.html#about">About</a></li><li><a href="contact.html">Contact</a></li>
             </ul></div>
             <div class="footer-col"><h4>Programs</h4><ul>
                 <li><a href="education.html">Quran Classes</a></li><li><a href="education.html">Arabic Classes</a></li>
@@ -218,18 +226,13 @@
             <div class="footer-col"><h4>Contact</h4>
                 <div class="contact-li"><i class="fas fa-map-marker-alt"></i><span>574 Watt St, Winnipeg, MB R2K 4K1</span></div>
                 <div class="contact-li"><i class="fas fa-phone"></i><span>+1 (431) 792-3791</span></div>
-                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="mailto:rahmaislamiccentre@gmail.com">rahmaislamiccentre@gmail.com</a></span></div>
+                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection#7b091a13161a1208171a161218181e150f091e3b1c161a121755181416"><span class="__cf_email__" data-cfemail="cfbdaea7a2aea6bca3aea2a6acacaaa1bbbdaa8fa8a2aea6a3e1aca0a2">[email&#160;protected]</span></a></span></div>
             </div>
         </div>
-                        <div class="footer-bottom">
-                <span>Copyright &copy; 2026 Rahma Islamic Centre. All rights reserved.</span>
-                                <span>Powered by Devodez Solutions</span>
+                                        <span>Powered by Devodez Solutions</span>
             </div>
         </div>
     </footer>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="shared.js"></script>
     <script>
-    var _cur='CAD';
-    function setCur(c){_cur=c;['CAD','USD'].forEach(function(x){var b=document.getElementById('btn'+x);if(!b)return;b.classList.toggle('active',x===c);});}
-    function setAmt(v,el){var inp=document.getElementById('donateAmt');if(inp)inp.value=v;document.querySelectorAll('.amt-btn').forEach(function(p){p.classList.remove('selected');});if(el)el.classList.add('selected');}
-    fu
+    var _cur='CAD'; function setCur(c){_cur=c;['CAD','USD'].forEach(function(x){var b=document.getElementById('btn'+x);if(!b)return;b.classList.toggle('active',x===c);})} function setAmt(v,el){var inp=document.getElementById('donateAmt');if(inp)inp.value=v;document.querySelectorAll('.amt-btn').forEach(function(p){p.classList.remove('selected');});if(el)el.classList.add('selected')

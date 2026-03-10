@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -212,7 +212,12 @@
 </head>
 <body>
 
-    <div id="loader"><div class="loader-text">RAHMA</div><div class="loader-bar"><div class="loader-fill"></div></div></div>
+    <div id="loader">
+  <div class="loader-star"></div>
+  <div class="loader-text">RAHMA</div>
+  <div class="loader-arabic">بِسْمِ ٱللَّٰهِ</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
 
         <div class="mobile-menu" id="mobileMenu">
         <a href="index.html"  onclick="closeMobile()">Home</a>
@@ -252,6 +257,7 @@
         <div class="page-header-content">
             <span class="page-header-eyebrow">Stay Informed &amp; Connected</span>
             <h1>Our <em>Newsletter</em></h1>
+            <div class="page-header-arabesque"><div class="arabesque-divider"><span class="arabesque-gem">✦ ✦ ✦</span></div></div>
         </div>
     </div>
 
@@ -337,12 +343,13 @@
         <form class="newsletter-form" onsubmit="subscribeNewsletter(event)"><input type="email" class="newsletter-input" placeholder="Your email address" required><button type="submit" class="newsletter-btn">Subscribe</button></form>
     </div></div></section>
     <footer class="footer"><div class="container">
+        <div class="footer-shahada">لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ</div>
         <div class="footer-grid">
             <div class="footer-brand"><span class="logo-text-footer">Rahma Islamic Centre</span><p>A vibrant Islamic center serving Muslims in Winnipeg since 2018.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
             <div class="footer-col"><h4>Navigation</h4><ul>
                 <li><a href="index.html">Home</a></li><li><a href="prayer-times.html">Prayer Times</a></li>
                 <li><a href="programs.html">Programs &amp; Services</a></li><li><a href="education.html">Education</a></li>
-                <li><a href="events.html">Events</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+                <li><a href="events.html">Events</a></li><li><a href="index.html#about">About</a></li><li><a href="contact.html">Contact</a></li>
             </ul></div>
             <div class="footer-col"><h4>Programs</h4><ul>
                 <li><a href="education.html">Quran Classes</a></li><li><a href="education.html">Arabic Classes</a></li>
@@ -351,15 +358,7 @@
             <div class="footer-col"><h4>Contact</h4>
                 <div class="contact-li"><i class="fas fa-map-marker-alt"></i><span>574 Watt St, Winnipeg, MB R2K 4K1</span></div>
                 <div class="contact-li"><i class="fas fa-phone"></i><span>+1 (431) 792-3791</span></div>
-                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="mailto:rahmaislamiccentre@gmail.com">rahmaislamiccentre@gmail.com</a></span></div>
+                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection#b7c5d6dfdad6dec4dbd6daded4d4d2d9c3c5d2f7d0dad6dedb99d4d8da"><span class="__cf_email__" data-cfemail="c1b3a0a9aca0a8b2ada0aca8a2a2a4afb5b3a481a6aca0a8adefa2aeac">[email&#160;protected]</span></a></span></div>
             </div>
         </div>
-                        <div class="footer-bottom">
-                <span>Copyright &copy; 2026 Rahma Islamic Centre. All rights reserved.</span>
-                                <span>Powered by Devodez Solutions</span>
-            </div>
-        </div>
-    </footer>
-    <script src="shared.js"></script>
-</body>
-</html>
+                               

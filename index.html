@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -41,7 +41,7 @@
         .about-year { position: absolute; bottom: -20px; right: -20px; z-index: 2; background: var(--gold); color: var(--navy); padding: 18px 24px; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; text-align: center; line-height: 1.2; }
         .about-year strong { display: block; font-size: 2rem; }
         .about-text p { font-family: 'DM Sans', sans-serif; font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 20px; font-weight: 300; }
-        .about-stats { display: grid; grid-template-columns: repeat(3, max-content); justify-content: center; gap: 30px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border); text-align: center;}
+        .about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border); }
         .stat-item { text-align: center; }
         .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--navy); line-height: 1; display: block; }
         .stat-label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-top: 8px; display: block; }
@@ -76,8 +76,8 @@
         .secure-tag i { color: #4ade80; margin-right: 6px; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) { .about-grid, .donate-inner { grid-template-columns: 1fr; gap: 50px; } .about-stats { grid-template-columns: repeat(2, max-content); justify-content: center; justify-items: center; }}
-        @media (max-width: 600px) {.about-stats { grid-template-columns: 1fr; stify-items: center;} .donate-form-box { padding: 36px 24px; }}
+        @media (max-width: 900px) { .about-grid, .donate-inner { grid-template-columns: 1fr; gap: 50px; } .about-img-wrap { max-width: 500px; } .about-stats { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .about-stats { grid-template-columns: 1fr; } .donate-form-box { padding: 36px 24px; } }
     </style>
 
     <!-- DROPDOWN NAV CSS -->
@@ -307,6 +307,10 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-pattern"></div>
+        <!-- Calligraphie Bismillah en filigrane -->
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1;">
+            <div style="font-family:'Noto Naskh Arabic',serif;font-size:clamp(3rem,12vw,10rem);color:rgba(201,168,76,0.04);direction:rtl;letter-spacing:0.05em;text-align:center;line-height:1.2;user-select:none;">بِسْمِ ٱللَّٰهِ<br>الرَّحْمَٰنِ الرَّحِيمِ</div>
+        </div></div>
         <div class="hero-content">
             <p class="hero-eyebrow">  </p>
             <h1 class="hero-title">Welcome to<br>Winnipeg <em>Rahma</em> Islamic Centre</h1>
@@ -363,13 +367,11 @@
                     <span class="section-label reveal">Who We Are</span>
                     <h2 class="section-title reveal">A Home for the <em>Muslim Community</em> in Winnipeg</h2>
                     <div class="divider reveal"></div>
-                        <p class="reveal">The Winnipeg Rahma Islamic Centre is a vibrant and inclusive Islamic Center dedicated to serving the spiritual, educational, and social needs of Muslims in Winnipeg. Our centre is a welcoming space for individuals of all ages, background, or level of religious knowledge.</p>
-                        <p class="reveal reveal-delay-1">Our mosque is committed to the teachings of the Quran and the Sunnah of the Prophet Muhammad (peace be upon him). We strive to promote compassion and unity among our members and the broader community.</p>
-                        <p class="reveal reveal-delay-2">With a focus on both religious education and community development, we offer various services to enrich the lives of our members and foster a spirit of brotherhood and sisterhood.</p>
-                    </div>
+                    <p class="reveal">Winnipeg Rahma Islamic Centre is a vibrant and inclusive Islamic center dedicated to serving the spiritual, educational, and social needs of Muslims in Winnipeg's Kildonan area.</p>
+                    <p class="reveal reveal-delay-1">We are committed to the teachings of the Quran and the Sunnah, striving to promote compassion and unity among our members and the broader community.</p>
                     <div class="about-stats reveal reveal-delay-2">
                         <div class="stat-item"><span class="stat-number" data-target="5">0</span><span class="stat-label">Daily Prayers</span></div>
-                        <div class="stat-item"><span class="stat-number" data-target="7">0</span><span class="stat-label">Programs</span></div>
+                        <div class="stat-item"><span class="stat-number" data-target="5">0</span><span class="stat-label">Programs</span></div>
                         <div class="stat-item"><span class="stat-number" data-target="2018">0</span><span class="stat-label"> Year</span></div>
                     </div>
                 </div>
@@ -382,6 +384,8 @@
         <div class="mission-pattern"></div>
         <div class="mission-bg-text">RAHMA</div>
         <div class="mission-inner">
+                <div style="font-family:'Noto Naskh Arabic',serif;font-size:1.6rem;color:rgba(201,168,76,0.7);direction:rtl;margin-bottom:20px;line-height:1.8;letter-spacing:0.05em;">وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا</div>
+                <div style="font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:36px;">Quran 3:103</div>
             <span class="section-label reveal" style="display:block;text-align:center;">Our Purpose</span>
             <h2 class="section-title reveal" style="color:var(--white);text-align:center;">Our <em style="color:var(--gold-light)">Mission</em></h2>
             <div class="mission-divider reveal"><span class="mission-gem">✦</span></div>
@@ -396,12 +400,12 @@
             <h2 class="section-title reveal">Our <em>Core Values</em></h2>
             <p class="reveal" style="color:var(--muted);max-width:600px;">At the Winnipeg Rahma Islamic Centre, we are guided by the following core values that shape everything we do.</p>
             <div class="values-grid">
-                <div class="value-item reveal"><div class="value-icon"><i class="fas fa-pray"></i></div><h3>Faith</h3><p>We prioritize nurturing a deep connection with Allah (SWT) through worship, prayer, and reflection on the teachings of Islam.</p></div>
-                <div class="value-item reveal reveal-delay-1"><div class="value-icon"><i class="fas fa-users"></i></div><h3>Community</h3><p>We believe in fostering a sense of brotherhood and sisterhood, where all members feel welcome, supported, and included.</p></div>
-                <div class="value-item reveal reveal-delay-2"><div class="value-icon"><i class="fas fa-book-open"></i></div><h3>Education</h3><p>We are committed to lifelong learning, offering programs that enhance understanding of the Quran, Hadith, and Islamic teachings.</p></div>
-                <div class="value-item reveal reveal-delay-1"><div class="value-icon"><i class="fas fa-hands-helping"></i></div><h3>Service</h3><p>We believe in giving back through charitable acts, support for the needy, and initiatives that benefit the broader society.</p></div>
-                <div class="value-item reveal reveal-delay-2"><div class="value-icon"><i class="fas fa-shield-alt"></i></div><h3>Integrity</h3><p>We strive to uphold the highest moral and ethical standards, reflecting the principles of honesty, fairness, and respect.</p></div>
-                <div class="value-item reveal reveal-delay-3"><div class="value-icon"><i class="fas fa-heart"></i></div><h3>Compassion</h3><p>We encourage kindness and care for others, following the example of the Prophet Muhammad (peace be upon him).</p></div>
+                <div class="value-item reveal"><div class="value-icon" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-light));color:var(--white);"><i class="fas fa-pray"></i></div><h3>Faith</h3><p>We prioritize nurturing a deep connection with Allah (SWT) through worship, prayer, and reflection on the teachings of Islam.</p></div>
+                <div class="value-item reveal reveal-delay-1"><div class="value-icon" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-light));color:var(--white);"><i class="fas fa-users"></i></div><h3>Community</h3><p>We believe in fostering a sense of brotherhood and sisterhood, where all members feel welcome, supported, and included.</p></div>
+                <div class="value-item reveal reveal-delay-2"><div class="value-icon" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-light));color:var(--white);"><i class="fas fa-book-open"></i></div><h3>Education</h3><p>We are committed to lifelong learning, offering programs that enhance understanding of the Quran, Hadith, and Islamic teachings.</p></div>
+                <div class="value-item reveal reveal-delay-1"><div class="value-icon" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-light));color:var(--white);"><i class="fas fa-hands-helping"></i></div><h3>Service</h3><p>We believe in giving back through charitable acts, support for the needy, and initiatives that benefit the broader society.</p></div>
+                <div class="value-item reveal reveal-delay-2"><div class="value-icon" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-light));color:var(--white);"><i class="fas fa-shield-alt"></i></div><h3>Integrity</h3><p>We strive to uphold the highest moral and ethical standards, reflecting the principles of honesty, fairness, and respect.</p></div>
+                <div class="value-item reveal reveal-delay-3"><div class="value-icon" style="background:linear-gradient(135deg,var(--emerald),var(--emerald-light));color:var(--white);"><i class="fas fa-heart"></i></div><h3>Compassion</h3><p>We encourage kindness and care for others, following the example of the Prophet Muhammad (peace be upon him).</p></div>
             </div>
         </div>
     </section>
@@ -476,6 +480,7 @@
         </div>
     </section>
     <footer class="footer"><div class="container">
+        <div class="footer-shahada">لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ</div>
         <div class="footer-grid">
             <div class="footer-brand"><span class="logo-text-footer">Rahma Islamic Centre</span><p>A vibrant Islamic center serving Muslims in Winnipeg since 2018.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
             <div class="footer-col"><h4>Navigation</h4><ul>
@@ -490,14 +495,14 @@
             <div class="footer-col"><h4>Contact</h4>
                 <div class="contact-li"><i class="fas fa-map-marker-alt"></i><span>574 Watt St, Winnipeg, MB R2K 4K1</span></div>
                 <div class="contact-li"><i class="fas fa-phone"></i><span>+1 (431) 792-3791</span></div>
-                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="mailto:rahmaislamiccentre@gmail.com">rahmaislamiccentre@gmail.com</a></span></div>
+                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection#87f5e6efeae6eef4ebe6eaeee4e4e2e9f3f5e2c7e0eae6eeeba9e4e8ea"><span class="__cf_email__" data-cfemail="780a19101519110b141915111b1b1d160c0a1d381f15191114561b1715">[email&#160;protected]</span></a></span></div>
             </div>
         </div>
                                         <span>Powered by Devodez Solutions</span>
             </div>
         </div>
     </footer>
-    <script src="shared.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="shared.js"></script>
     <script>
     /* ── HORLOGE + DATE — PAGE HOME ── */
     (function tickClock(){
@@ -525,41 +530,19 @@
             var T = null;
             try {
                 var r = await fetch('https://mawaqit.net/api/2.0/mosque/by-slug/rahma-islamic-centre-winnipeg/prayer-times');
-                if (r.ok) {
-                    var d = await r.json();
-                    if (d.times && d.times.length >= 6)
-                        T = {Fajr:d.times[0], Dhuhr:d.times[2], Asr:d.times[3], Maghrib:d.times[4], Isha:d.times[5]};
-                }
+                if (r.ok) { var d = await r.json(); if (d.times && d.times.length >= 6) T = {Fajr:d.times[0], Dhuhr:d.times[2], Asr:d.times[3], Maghrib:d.times[4], Isha:d.times[5]}; }
             } catch(e) {}
-            if (!T) {
-                try {
-                    var now = new Date();
-                    var url = 'https://api.aladhan.com/v1/timings/'
-                        + now.getDate() + '-' + (now.getMonth()+1) + '-' + now.getFullYear()
-                        + '?latitude=49.8951&longitude=-97.1384&method=2';
-                    var res = await fetch(url, {mode:'cors'});
-                    var data = await res.json();
-                    if (data.code === 200) T = data.data.timings;
-                } catch(e) {}
-            }
+            if (!T) { try { var now = new Date(); var url = 'https://api.aladhan.com/v1/timings/'+now.getDate()+'-'+(now.getMonth()+1)+'-'+now.getFullYear()+'?latitude=49.8951&longitude=-97.1384&method=2'; var res = await fetch(url,{mode:'cors'}); var data = await res.json(); if (data.code === 200) T = data.data.timings; } catch(e) {} }
             if (!T) T = {Fajr:'06:12', Dhuhr:'12:41', Asr:'15:34', Maghrib:'18:09', Isha:'19:38'};
-
             var map     = {Fajr:'fajr-time', Dhuhr:'dhuhr-time', Asr:'asr-time', Maghrib:'maghrib-time', Isha:'isha-time'};
             var cardMap = {Fajr:'card-fajr',  Dhuhr:'card-dhuhr', Asr:'card-asr', Maghrib:'card-maghrib', Isha:'card-isha'};
-
-            var nm = new Date().getHours()*60 + new Date().getMinutes();
-            var active = 'Isha';
+            var nm = new Date().getHours()*60 + new Date().getMinutes(), active = 'Isha';
             ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(function(k) {
-                var raw = T[k] || T[k.toLowerCase()] || '';
-                var t24 = raw.split(' ')[0];
-                var el = document.getElementById(map[k]);
-                if (el) el.textContent = fmtTime(t24);
+                var raw = T[k] || T[k.toLowerCase()] || ''; var t24 = raw.split(' ')[0];
+                var el = document.getElementById(map[k]); if (el) el.textContent = fmtTime(t24);
                 if (t24) { var p = t24.split(':').map(Number); if (nm >= p[0]*60+p[1]) active = k; }
             });
-            ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(function(k) {
-                var el = document.getElementById(cardMap[k]);
-                if (el) el.classList.toggle('active-prayer', k === active);
-            });
+            ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(function(k) { var el = document.getElementById(cardMap[k]); if (el) el.classList.toggle('active-prayer', k === active); });
         }
         document.addEventListener('DOMContentLoaded', loadHomePrayers);
     })();
@@ -570,22 +553,5 @@
         var obs = new IntersectionObserver(function(entries) {
             entries.forEach(function(e) {
                 if (!e.isIntersecting) return;
-                var el = e.target;
-                var target = parseInt(el.getAttribute('data-target'));
-                var start = 0, duration = 1800;
-                var step = function(ts) {
-                    if (!start) start = ts;
-                    var prog = Math.min((ts - start) / duration, 1);
-                    el.textContent = Math.floor(prog * target);
-                    if (prog < 1) requestAnimationFrame(step);
-                    else el.textContent = target;
-                };
-                requestAnimationFrame(step);
-                obs.unobserve(el);
-            });
-        }, {threshold: 0.5});
-        nums.forEach(function(el) { obs.observe(el); });
-    });
-    </script>
-</body>
-</html>
+                var el = e.target, target = parseInt(el.getAttribute('data-target')), start = 0, duration = 1800;
+                var step = function(ts) { if (!start) start = ts; var prog = Math.min((ts-start)/duration,1); el.textContent = Math.floor(prog*target); if (prog < 1) reque
