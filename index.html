@@ -320,7 +320,7 @@
             <p class="hero-subtitle">A sanctuary of worship, learning &amp; community</p>
             <div class="hero-ctas">
                 <a href="prayer-times.html" class="btn-primary">Prayer Times</a>
-                <a href="about.html" class="btn-outline">Learn More</a>
+                <a href="index.html#about" class="btn-outline">Learn More</a>
             </div>
         </div>
         <div class="hero-scroll" onclick="document.getElementById('prayer').scrollIntoView({behavior:'smooth'})">
@@ -394,11 +394,11 @@
             <h2 class="section-title reveal" style="color:var(--white);text-align:center;">Our <em style="color:var(--gold-light)">Mission</em></h2>
             <div class="mission-divider reveal"><span class="mission-gem">✦</span></div>
             <p class="reveal">"Our mission is to create an environment of spiritual growth, education, and social welfare that nurtures individuals and strengthens the community — inspiring all to live guided by Islamic principles."</p>
-            <div style="margin-top:40px;text-align:center;" class="reveal reveal-delay-2"><a href="about.html" class="btn-primary">Learn About Us</a></div>
+            <div style="margin-top:40px;text-align:center;" class="reveal reveal-delay-2"><a href="index.html#about" class="btn-primary">Learn About Us</a></div>
         </div>
     </section>
 
-    <section class="values-section">
+    <section class="values-section" id="values">
         <div class="container">
             <span class="section-label reveal">What Guides Us</span>
             <h2 class="section-title reveal">Our <em>Core Values</em></h2>
@@ -498,14 +498,14 @@
             <div class="footer-col"><h4>Contact</h4>
                 <div class="contact-li"><i class="fas fa-map-marker-alt"></i><span>574 Watt St, Winnipeg, MB R2K 4K1</span></div>
                 <div class="contact-li"><i class="fas fa-phone"></i><span>+1 (431) 792-3791</span></div>
-                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="mailto:rahmaislamiccentre@gmail.com">rahmaislamiccentre@gmail.com</a></span></div>
+                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection#addfccc5c0ccc4dec1ccc0c4cecec8c3d9dfc8edcac0ccc4c183cec2c0"><span class="__cf_email__" data-cfemail="1361727b7e727a607f727e7a7070767d67617653747e727a7f3d707c7e">[email&#160;protected]</span></a></span></div>
             </div>
         </div>
                                         <span>Powered by Devodez Solutions</span>
             </div>
         </div>
     </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="shared.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="shared.js"></script>
     <script>
     /* ── HORLOGE + DATE — PAGE HOME ── */
     (function tickClock(){
@@ -586,14 +586,4 @@
                     var prog = Math.min((ts - start) / duration, 1);
                     el.textContent = Math.floor(prog * target);
                     if (prog < 1) requestAnimationFrame(step);
-                    else el.textContent = target;
-                };
-                requestAnimationFrame(step);
-                obs.unobserve(el);
-            });
-        }, { threshold: 0.3 });
-        nums.forEach(function(n) { obs.observe(n); });
-    });
-</script>
-</body>
-</html>
+                    else 
