@@ -323,28 +323,32 @@
             <div class="hamburger" id="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
         </div>
     </nav>
-
-    <!-- ══ EID ANNOUNCEMENT STRIP ══ -->
-    <div id="eidStrip" style="position:relative;width:100%;z-index:1002;background:linear-gradient(90deg,#B8902A,#C9A84C,#E8C96A,#C9A84C,#B8902A);padding:0;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.3);">
-        <div style="max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:14px;padding:11px 20px;position:relative;">
-            <i class="fas fa-star-and-crescent" style="color:#0B1F3A;font-size:1rem;flex-shrink:0;"></i>
-            <span style="font-family:'Cinzel',serif;font-size:0.72rem;font-weight:700;letter-spacing:0.22em;color:#0B1F3A;text-transform:uppercase;white-space:nowrap;">Eid Al-Fitr Prayer</span>
-            <span style="width:1px;height:14px;background:rgba(11,31,58,0.25);flex-shrink:0;"></span>
-            <span style="font-family:'DM Sans',sans-serif;font-size:0.82rem;color:#0B1F3A;white-space:nowrap;">Register your family now — free &amp; open to all</span>
-            <a href="eid-registration.html" style="display:inline-flex;align-items:center;gap:7px;padding:6px 20px;background:#0B1F3A;color:#C9A84C;text-decoration:none;font-family:'Cinzel',serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;border-radius:2px;flex-shrink:0;margin-left:8px;">
-                <i class="fas fa-user-plus"></i>&nbsp;Register
-            </a>
-            <button onclick="document.getElementById('eidStrip').style.display='none';document.body.style.paddingTop='0';" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(11,31,58,0.5);font-size:1.1rem;padding:4px;line-height:1;" title="Close">&#x2715;</button>
-        </div>
-    </div>
+    
     <style>
-        /* EID strip responsive */
-        @media (max-width: 680px) {
-            #eidStrip span:nth-child(4) { display: none; }
-            #eidStrip span:nth-child(3) { display: none; }
+        /* Mawaqit iframe responsive */
+        .mawaqit-iframe-wrap iframe {
+            height: 680px;
+        }
+        @media (max-width: 900px) {
+            .mawaqit-iframe-wrap iframe { height: 750px; }
+        }
+        @media (max-width: 600px) {
+            .mawaqit-iframe-wrap iframe { height: 820px; }
         }
     </style>
 
+    <!-- SECURITY ALERT BAR -->
+    <div id="securityAlertBar" style="position:relative;z-index:1200;background:linear-gradient(135deg,#5c1f2b 0%,#3a1119 100%);border-bottom:1px solid rgba(232,196,104,0.35);">
+        <div class="container" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center;padding:13px 20px;">
+            <i class="fas fa-triangle-exclamation" style="color:#e8c468;font-size:0.95rem;flex-shrink:0;"></i>
+            <span style="font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:400;color:#f4e9ea;line-height:1.5;">
+                <strong style="color:#e8c468;font-weight:600;">Security Update:</strong>
+                Shots were fired at our centre on Wednesday evening. Alhamdulillah, no one was injured.
+            </span>
+            <a href="#security-update" style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:#e8c468;font-weight:600;text-decoration:underline;white-space:nowrap;flex-shrink:0;">Read Full Statement →</a>
+            <button onclick="document.getElementById('securityAlertBar').style.display='none'" aria-label="Dismiss notice" style="background:none;border:none;color:rgba(244,233,234,0.55);font-size:1.15rem;line-height:1;cursor:pointer;padding:0 2px;flex-shrink:0;">&times;</button>
+        </div>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -365,6 +369,38 @@
         </div>
     </section>
 
+    <!-- SECURITY UPDATE / OFFICIAL STATEMENT -->
+    <section id="security-update" style="background:linear-gradient(135deg,#2b1016 0%,#170a0d 100%);padding:90px 24px;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:-60%;border:1px solid rgba(232,196,104,0.1);opacity:0.06;pointer-events:none;animation:patternSpin 80s linear infinite;"></div>
+        <div class="container" style="position:relative;z-index:1;max-width:820px;margin:0 auto;">
+            <div style="text-align:center;margin-bottom:44px;">
+                <span style="font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;color:#e8c468;">Community Safety Notice</span>
+                <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,4vw,2.6rem);color:#fff;margin-top:14px;">Official Statement on the <em style="font-style:italic;color:#e8c468;">Security Incident</em></h2>
+                <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:rgba(255,255,255,0.5);margin-top:10px;">Rahma Islamic Centre, Winnipeg</p>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(232,196,104,0.2);border-radius:4px;padding:44px 40px;">
+                <p style="font-family:'DM Sans',sans-serif;font-size:0.98rem;line-height:1.9;color:rgba(255,255,255,0.85);font-weight:300;margin-bottom:22px;">
+                    On Wednesday evening, two individuals fired shots at our centre from a vehicle and then attacked the building with another weapon that broke glass, while community members were gathered inside. Thankfully, they were unable to enter the premises and no one was injured. Earlier that same day, individuals believed to be the same attackers shouted racial slurs at people gathered at the centre.
+                </p>
+                <p style="font-family:'DM Sans',sans-serif;font-size:0.98rem;line-height:1.9;color:rgba(255,255,255,0.85);font-weight:300;margin-bottom:22px;">
+                    This has deeply shaken our volunteers, staff, children, and wider community. Our centre exists to be a place of worship, belonging, and peace — having that sense of safety violated is profoundly disturbing to all of us.
+                </p>
+                <p style="font-family:'DM Sans',sans-serif;font-size:0.98rem;line-height:1.9;color:rgba(255,255,255,0.85);font-weight:300;margin-bottom:22px;">
+                    The incident has been reported to Winnipeg Police, who are actively investigating. We are also grateful for the outpouring of support from our neighbours, community members, and partners — including a public statement from Prime Minister Mark Carney condemning the attack as an act of Islamophobia with no place in Canada.
+                </p>
+                <p style="font-family:'DM Sans',sans-serif;font-size:0.98rem;line-height:1.9;color:rgba(255,255,255,0.85);font-weight:300;margin-bottom:0;">
+                    Rahma Islamic Centre remains committed to being a safe and welcoming space for everyone. We will share further information as the investigation progresses. If you have any information related to this incident, or any safety concerns, please reach out to us directly.
+                </p>
+
+                <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(232,196,104,0.15);display:flex;flex-wrap:wrap;gap:24px;justify-content:center;">
+                    <a href="tel:+14317923791" style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:#e8c468;text-decoration:none;"><i class="fas fa-phone" style="margin-right:8px;"></i>+1 (431) 792-3791</a>
+                    <a href="mailto:contact@rahmaonline.org" style="font-family:'DM Sans',sans-serif;font-size:0.85rem;color:#e8c468;text-decoration:none;"><i class="fas fa-envelope" style="margin-right:8px;"></i>contact@rahmaonline.org</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PRAYER TIMES -->
     <section class="prayer-section" id="prayer">
         <div class="prayer-pattern"></div>
@@ -379,13 +415,18 @@
                     <div class="prayer-clock" id="currentTime">--:--</div>
                 </div>
             </div>
-            <div class="prayer-cards">
-                <div class="prayer-card-item" id="card-fajr"><div class="prayer-icon-ring"><i class="fas fa-moon prayer-icon"></i></div><div class="prayer-name">Fajr</div><div class="prayer-time-val" id="fajr-time">—</div></div>
-                <div class="prayer-card-item" id="card-dhuhr"><div class="prayer-icon-ring"><i class="fas fa-sun prayer-icon"></i></div><div class="prayer-name">Dhuhr</div><div class="prayer-time-val" id="dhuhr-time">—</div></div>
-                <div class="prayer-card-item" id="card-asr"><div class="prayer-icon-ring"><i class="fas fa-cloud-sun prayer-icon"></i></div><div class="prayer-name">Asr</div><div class="prayer-time-val" id="asr-time">—</div></div>
-                <div class="prayer-card-item" id="card-maghrib"><div class="prayer-icon-ring"><i class="fas fa-cloud-moon prayer-icon"></i></div><div class="prayer-name">Maghrib</div><div class="prayer-time-val" id="maghrib-time">—</div></div>
-                <div class="prayer-card-item" id="card-isha"><div class="prayer-icon-ring"><i class="fas fa-star prayer-icon"></i></div><div class="prayer-name">Isha</div><div class="prayer-time-val" id="isha-time">—</div></div>
-                <div class="prayer-card-item"><div class="prayer-icon-ring"><i class="fas fa-mosque prayer-icon"></i></div><div class="prayer-name">Jumu'ah</div><div class="prayer-time-val">1:45 &amp; 2:45 PM</div></div>
+            <!-- Widget Mawaqit complet -->
+            <div class="mawaqit-iframe-wrap" style="width:100%;margin-bottom:16px;border-radius:16px;overflow:hidden;box-shadow:0 4px 40px rgba(0,0,0,0.6);background:#0a1628;">
+                <iframe
+                    src="https://mawaqit.net/fr/w/rahma-wpg"
+                    width="100%"
+                    height="680"
+                    frameborder="0"
+                    scrolling="no"
+                    allow="autoplay"
+                    style="display:block;width:100%;height:680px;border:none;"
+                    title="Rahma Masjid Prayer Times — Mawaqit"
+                ></iframe>
             </div>
             <div class="prayer-location-bar">
                 <i class="fas fa-map-marker-alt"></i>
@@ -537,14 +578,14 @@
             <div class="footer-col"><h4>Contact</h4>
                 <div class="contact-li"><i class="fas fa-map-marker-alt"></i><span>574 Watt St, Winnipeg, MB R2K 4K1</span></div>
                 <div class="contact-li"><i class="fas fa-phone"></i><span>+1 (431) 792-3791</span></div>
-                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="mailto:contact@rahmaonline.org" style="color:var(--gold);text-decoration:none;">contact@rahmaonline.org</a></span></div>
+                <div class="contact-li"><i class="fas fa-envelope"></i><span><a href="mailto:contact@rahmaonline.org">contact@rahmaonline.org</a></span></div>
             </div>
         </div>
                                         <span>Powered by Devodez Solutions</span>
             </div>
         </div>
     </footer>
-    <script src="shared.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="shared.js"></script>
     <script>
     /* ── HORLOGE + DATE — PAGE HOME ── */
     (function tickClock(){
@@ -553,67 +594,16 @@
         var now = new Date();
         if (el) {
             var h = now.getHours(), m = now.getMinutes();
-            var ampm = h >= 12 ? 'PM' : 'AM';
-            el.textContent = (h%12||12) + ':' + String(m).padStart(2,'0') + ' ' + ampm;
+            el.textContent = (h%12||12) + ':' + String(m).padStart(2,'0') + ' ' + (h>=12?'PM':'AM');
         }
         if (de) de.textContent = now.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
         setTimeout(tickClock, 1000);
     })();
 
-    /* ── PRAYER TIMES — PAGE HOME ── */
-    (function() {
-        function fmtTime(raw) {
-            if (!raw) return '—';
-            var t = raw.split(' ')[0].split(':');
-            var h = parseInt(t[0]), m = t[1];
-            return (h % 12 || 12) + ':' + m + ' ' + (h >= 12 ? 'PM' : 'AM');
-        }
-        async function loadHomePrayers() {
-            var T = null;
-            try {
-                var r = await fetch('https://mawaqit.net/api/2.0/mosque/by-slug/rahma-islamic-centre-winnipeg/prayer-times');
-                if (r.ok) {
-                    var d = await r.json();
-                    if (d.times && d.times.length >= 6)
-                        T = {Fajr:d.times[0], Dhuhr:d.times[2], Asr:d.times[3], Maghrib:d.times[4], Isha:d.times[5]};
-                }
-            } catch(e) {}
-            if (!T) {
-                try {
-                    var now = new Date();
-                    var url = 'https://api.aladhan.com/v1/timings/'
-                        + now.getDate() + '-' + (now.getMonth()+1) + '-' + now.getFullYear()
-                        + '?latitude=49.8951&longitude=-97.1384&method=2';
-                    var res = await fetch(url, {mode:'cors'});
-                    var data = await res.json();
-                    if (data.code === 200) T = data.data.timings;
-                } catch(e) {}
-            }
-            if (!T) T = {Fajr:'06:12', Dhuhr:'12:41', Asr:'15:34', Maghrib:'18:09', Isha:'19:38'};
-
-            var map     = {Fajr:'fajr-time', Dhuhr:'dhuhr-time', Asr:'asr-time', Maghrib:'maghrib-time', Isha:'isha-time'};
-            var cardMap = {Fajr:'card-fajr',  Dhuhr:'card-dhuhr', Asr:'card-asr', Maghrib:'card-maghrib', Isha:'card-isha'};
-
-            var nm = new Date().getHours()*60 + new Date().getMinutes();
-            var active = 'Isha';
-            ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(function(k) {
-                var raw = T[k] || T[k.toLowerCase()] || '';
-                var t24 = raw.split(' ')[0];
-                var el = document.getElementById(map[k]);
-                if (el) el.textContent = fmtTime(t24);
-                if (t24) { var p = t24.split(':').map(Number); if (nm >= p[0]*60+p[1]) active = k; }
-            });
-            ['Fajr','Dhuhr','Asr','Maghrib','Isha'].forEach(function(k) {
-                var el = document.getElementById(cardMap[k]);
-                if (el) el.classList.toggle('active-prayer', k === active);
-            });
-        }
-        document.addEventListener('DOMContentLoaded', loadHomePrayers);
-    })();
-
     /* ── COUNTERS ANIMATION ── */
     document.addEventListener('DOMContentLoaded', function() {
         var nums = document.querySelectorAll('.stat-number[data-target]');
+        if (!nums.length) return;
         var obs = new IntersectionObserver(function(entries) {
             entries.forEach(function(e) {
                 if (!e.isIntersecting) return;
@@ -630,9 +620,9 @@
                 requestAnimationFrame(step);
                 obs.unobserve(el);
             });
-        }, { threshold: 0.3 });
+        }, {threshold: 0.3});
         nums.forEach(function(n) { obs.observe(n); });
     });
-</script>
+    </script>
 </body>
 </html>
